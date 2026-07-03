@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unicorn Checkers 🦄</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="sparkle-canvas"></canvas>
+
+  <div class="app">
+
+    <header class="site-header">
+      <h1 class="title">
+        <span class="title-emoji">🦄</span>
+        Unicorn Checkers
+        <span class="title-emoji">🦄</span>
+      </h1>
+      <p class="subtitle">A magical, sparkly take on the classic game</p>
+    </header>
+
+    <main class="game-layout">
+
+      <section class="panel panel-left">
+        <div class="player-card" data-player="pink">
+          <div class="player-avatar">🦄</div>
+          <div class="player-info">
+            <span class="player-name">Cotton Candy</span>
+            <span class="player-score" id="score-pink">0</span>
+          </div>
+        </div>
+
+        <div class="turn-indicator" id="turn-indicator">
+          <span id="turn-text">Cotton Candy's turn</span>
+        </div>
+
+        <div class="controls">
+          <button id="new-game-btn" class="btn btn-primary">✨ New Game</button>
+          <button id="rules-btn" class="btn btn-secondary">📜 Rules</button>
+        </div>
+
+        <div class="captures-log">
+          <h3>Move Log</h3>
+          <ul id="log-list"></ul>
+        </div>
+      </section>
+
+      <section class="board-wrap">
+        <div class="board-frame">
+          <div id="board" class="board"></div>
+        </div>
+      </section>
+
+      <section class="panel panel-right">
+        <div class="player-card" data-player="purple">
+          <div class="player-avatar">🦄</div>
+          <div class="player-info">
+            <span class="player-name">Galaxy Dream</span>
+            <span class="player-score" id="score-purple">0</span>
+          </div>
+        </div>
+
+        <div class="mandatory-hint" id="capture-hint" hidden>
+          ⚡ Capture available — you must jump!
+        </div>
+
+        <div class="king-legend">
+          <h3>Legend</h3>
+          <div class="legend-row"><span class="legend-piece pink"></span> Cotton Candy piece</div>
+          <div class="legend-row"><span class="legend-piece purple"></span> Galaxy Dream piece</div>
+          <div class="legend-row"><span class="legend-piece pink king">👑</span> Unicorn King</div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      Made with 🦄 magic, sparkles, and diagonal jumps.
+    </footer>
+  </div>
+
+  <!-- Rules Modal -->
+  <div id="rules-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <h2>📜 How to Play</h2>
+      <ul>
+        <li>Pieces move diagonally, one square at a time, onto dark squares only.</li>
+        <li>Capture an opponent piece by jumping over it into an empty square beyond.</li>
+        <li>If a capture is available, you must take it (chain jumps continue automatically).</li>
+        <li>Reach the far end of the board to crown your piece a <strong>Unicorn King</strong> 👑, who can move and capture in any diagonal direction.</li>
+        <li>Win by capturing all opponent pieces or leaving them with no legal moves.</li>
+      </ul>
+      <button id="close-rules-btn" class="btn btn-primary">Got it! ✨</button>
+    </div>
+  </div>
+
+  <!-- Win Modal -->
+  <div id="win-modal" class="modal-overlay" hidden>
+    <div class="modal win-modal">
+      <h2 id="win-title">🎉 Victory! 🎉</h2>
+      <p id="win-message"></p>
+      <button id="play-again-btn" class="btn btn-primary">🦄 Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
