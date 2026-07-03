@@ -470,6 +470,10 @@ body {
   z-index: 10;
 }
 
+.modal-overlay[hidden] {
+  display: none;
+}
+
 .modal {
   background: linear-gradient(160deg, #fff, #ffe9fb);
   border-radius: 20px;
